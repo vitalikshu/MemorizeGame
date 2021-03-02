@@ -59,13 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				163F89E425ED15B000EC686D /* MemorizeApp.swift */,
+				163F89FD25EE5FA600EC686D /* SceneDelegate.swift */,
 				163F89E625ED15B000EC686D /* EmojiMemoryGameView.swift */,
+				163F89F825ED4B8600EC686D /* EmojiMemoryGame.swift */,
+				163F89F525ED46B600EC686D /* MemoryGameModel.swift */,
 				163F89E825ED15B300EC686D /* Assets.xcassets */,
 				163F89ED25ED15B300EC686D /* Info.plist */,
 				163F89EA25ED15B300EC686D /* Preview Content */,
-				163F89F525ED46B600EC686D /* MemoryGameModel.swift */,
-				163F89F825ED4B8600EC686D /* EmojiMemoryGame.swift */,
-				163F89FD25EE5FA600EC686D /* SceneDelegate.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";

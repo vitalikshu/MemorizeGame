@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EmojiMemoryGameView: View {
     
-    var viewModel: EmojiMemoryGame
+    @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
         
@@ -23,7 +23,6 @@ struct EmojiMemoryGameView: View {
         }
         .padding()
         .foregroundColor(.orange)
-        .font(Font.largeTitle)
         
     }
 }
@@ -41,18 +40,28 @@ struct CardView: View {
     var card:MemoryGame<String>.Card
     //var isFaceUp: Bool
     var body: some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3.0)
-                Text (card.content)//Text("👻")
-                
-            } else {
-                RoundedRectangle(cornerRadius: 10.0).fill()
-                
+        GeometryReader(content:  { geometry in
+            ZStack {
+                if card.isFaceUp {
+                    RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                    RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+                    Text (card.content)//Text("👻")
+                    
+                } else {
+                    RoundedRectangle(cornerRadius: cornerRadius).fill()
+                }
             }
-        }
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height)*fontScaleFactor))
+
+        })
+      
     }
+    // MARK - Drawing Constans
+    let cornerRadius: CGFloat = 10.0
+    let edgeLineWidth: CGFloat = 10.0
+    let fontScaleFactor: CGFloat = 0.6
+    
+    
 }
 // MARK - CardView
 
